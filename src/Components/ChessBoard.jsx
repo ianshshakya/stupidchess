@@ -24,7 +24,7 @@ export default function ChessBoard({ fen }) {
   React.useEffect(() => {
     const updateBoardSize = () => {
       if (window.innerWidth < 768) {
-        setBoardWidth(Math.min(290, window.innerWidth - 40));
+        setBoardWidth(Math.min(310, window.innerWidth - 40));
       } else if (window.innerWidth < 1024) {
         setBoardWidth(250);
       } else {
