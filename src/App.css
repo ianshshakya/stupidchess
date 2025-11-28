@@ -31,7 +31,7 @@ body {
   width: 100dvw;
   min-height: 100dvh;
   display: flex;
-  margin-top: 3rem;
+  margin-top: 5rem;
   background: var(--primary-dark);
 }
 
