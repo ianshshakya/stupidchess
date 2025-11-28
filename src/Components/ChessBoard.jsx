@@ -71,7 +71,7 @@ export default function ChessBoard({ fen }) {
     overflow: 'hidden'
   };
   const importPiece = (name) => {
-  return `/src/assets/images/${name}.png`;
+  return `/images/${name}.png`;
 };
 
  const customPieces = {
