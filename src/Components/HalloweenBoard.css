@@ -1,0 +1,28 @@
+.promotion-modal {
+  position: fixed;
+  top: 30%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 999;
+}
+
+.promotion-box {
+  background: #2f0f1e;
+  padding: 16px;
+  border: 2px solid #ff6600;
+  color: #ffb766;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.promotion-box button {
+  margin: 6px;
+  padding: 8px 12px;
+  border: none;
+  background: #ff6600;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
