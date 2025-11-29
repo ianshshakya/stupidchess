@@ -8,6 +8,9 @@ export default function ChessBoard({ fen }) {
   const [promotionData, setPromotionData] = useState(null);
   const [boardWidth, setBoardWidth] = useState(300);
   const [isConnected, setIsConnected] = useState(false);
+  const whitePieceCapturedSound = new Audio("/audio/whitetake.mp3");
+  const blackPieceCapturedSound = new Audio("/audio/blacktake.mp3");
+
 
   /* ================================
      SYNC GAME WITH BACKEND FEN (SAFE)
@@ -88,11 +91,30 @@ export default function ChessBoard({ fen }) {
     }
 
     const tempGame = new Chess(game.fen());
+    // check if target square had a piece BEFORE the move
+    // BEFORE making the move → check if a piece exists on target
+    const targetPieceBeforeMove = game.get(target);
+
     const move = tempGame.move({
       from: source,
       to: target,
       promotion: "q",
     });
+
+    if (!move) return false;
+
+    // 🔥 PLAY SOUND ONLY WHEN ACTUAL CAPTURE OCCURRED
+    if (targetPieceBeforeMove) {
+      if (targetPieceBeforeMove.color === "w") {
+        // WHITE WAS TAKEN by black
+        whitePieceCapturedSound.play();
+      } else {
+        // BLACK WAS TAKEN by white
+        blackPieceCapturedSound.play();
+      }
+    }
+
+
 
     if (!move) return false;
 

@@ -9,6 +9,8 @@ export default function App() {
   const [fen, setFen] = useState("start");
   const [roasts, setRoasts] = useState([]);
   const [result, setResult] = useState("");
+  const [previousFen, setPreviousFen] = useState(null);
+
 
   useEffect(() => {
     socket.on("game:init", ({ fen }) => {
