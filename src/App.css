@@ -1,9 +1,19 @@
+
+:root {
+  --vh: 1vh;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --vh: calc(1vh);
+  }
+}
 /* Reset and base styles */
 * {
-  margin: 0;
-  padding: 0;
+
   box-sizing: border-box;
 }
+
 
 :root {
   --primary-orange: #ff6b35;
@@ -23,13 +33,15 @@ body {
   color: var(--text-primary);
   min-height: 100vh;
   line-height: 1.6;
-  overflow: hidden;
+  
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /* App container */
 .app {
-  width: 100dvw;
-  min-height: 100dvh;
+   width: 100vw;
+  min-height: calc(var(--vh) * 100);
   display: flex;
   margin-top: 5rem;
   background: var(--primary-dark);
@@ -41,7 +53,6 @@ body {
   grid-template-columns: 1fr;
   gap: 1rem;
   width: 100%;
-  height: 100%;
 }
 
 @media (min-width: 768px) {
@@ -475,6 +486,7 @@ body {
 
   .game-section {
     min-height: 50vh;
+    margin-top: -2rem;
   }
 
   .chat-section {
@@ -534,6 +546,7 @@ body {
   .chat-section {
     min-height: 35vh;
   }
+  
 }
 
 /* Landscape mode optimization */
